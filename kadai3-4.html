@@ -30,11 +30,15 @@
 
             // 商品購入の関数
             function buyItem(no) {
-                console.log("商品番号: " + items[no-1].id + ", 商品名: " + items[no-1].name + "を購入します。");
-                if(items[no-1].stock!=0){
-                    items[no-1].stock--;
+                if(0 < items[no-1].id <= items.length){
+                    console.log("商品番号: " + items[no-1].id + ", 商品名: " + items[no-1].name + "を購入します。");
+                    if(items[no-1].stock!=0){
+                        items[no-1].stock--;
+                    }else{
+                        console.log("在庫がありません。")
+                    }
                 }else{
-                    console.log("在庫がありません。")
+                    console.log(items[no-1].id + "は無効な商品番号です。番号は1～8で指定してください。");
                 }
                 showItemList(); // 商品一覧の表示関数呼び出し
             }
